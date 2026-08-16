@@ -281,7 +281,7 @@ function Landing() {
                     aria-label={`Aller à la photo ${i + 1}`}
                     onClick={() => hero.setIndex(i)}
                     className={`h-2 rounded-full transition-all ${
-                      i === hero.index ? "w-6 bg-terracotta" : "w-2 bg-border"
+                      i === hero.index ? "w-6 bg-terracotta" : "w-2 bg-foreground/20"
                     }`}
                   />
                 ))}
