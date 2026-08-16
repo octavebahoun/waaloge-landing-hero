@@ -389,11 +389,12 @@ function Landing() {
               ”
             </p>
             <blockquote className="mt-2 font-display text-2xl leading-snug sm:text-3xl">
-              {testimonials[quote.index].quote}
+              {testimonials[quote.index]?.quote}
             </blockquote>
             <p className="mt-6 text-sm text-muted-foreground">
-              — {testimonials[quote.index].author}
+              — {testimonials[quote.index]?.author}
             </p>
+
 
             <button
               type="button"
