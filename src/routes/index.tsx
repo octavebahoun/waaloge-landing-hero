@@ -281,10 +281,12 @@ function Landing() {
             <div className="relative mx-auto w-full max-w-md">
               <div className="dotted-crown rounded-full p-5">
                 <div className="relative aspect-square">
-                  {heroSlides.map((slot, i) => (
+                  {heroSlides.map((slide, i) => (
                     <ImageSlot
-                      key={slot}
-                      label={slot}
+                      key={slide.label}
+                      label={slide.label}
+                      src={slide.src}
+                      priority={i === 0}
                       round
                       className={`absolute inset-0 size-full transition-opacity duration-700 ${
                         i === hero.index ? "opacity-100" : "opacity-0"
