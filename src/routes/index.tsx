@@ -314,9 +314,9 @@ function Landing() {
               </button>
 
               <div className="mt-6 flex justify-center gap-2 sm:absolute sm:bottom-14 sm:left-[38%] sm:mt-0 sm:-translate-x-1/2">
-                {heroSlides.map((slot, i) => (
+                {heroSlides.map((slide, i) => (
                   <button
-                    key={slot}
+                    key={slide.label}
                     type="button"
                     aria-label={`Aller à la photo ${i + 1}`}
                     onClick={() => hero.setIndex(i)}
