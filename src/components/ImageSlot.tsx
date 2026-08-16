@@ -4,13 +4,15 @@ type ImageSlotProps = {
   label: string;
   className?: string;
   round?: boolean;
+  src?: string;
+  priority?: boolean;
 };
 
 /**
- * <image-slot> placeholder — à remplacer par les vraies photos.
- * Rendu en style Organic "washed".
+ * Emplacement photo en style Organic "washed".
+ * Affiche la vraie photo si `src` est fourni, sinon un placeholder.
  */
-export function ImageSlot({ label, className, round = false }: ImageSlotProps) {
+export function ImageSlot({ label, className, round = false, src, priority }: ImageSlotProps) {
   return (
     <div
       data-image-slot={label}
@@ -20,9 +22,18 @@ export function ImageSlot({ label, className, round = false }: ImageSlotProps) {
         className,
       )}
     >
-      <span className="px-4 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-        {label}
-      </span>
+      {src ? (
+        <img
+          src={src}
+          alt={label}
+          loading={priority ? "eager" : "lazy"}
+          className="size-full object-cover saturate-[0.92] sepia-[0.12]"
+        />
+      ) : (
+        <span className="px-4 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          {label}
+        </span>
+      )}
     </div>
   );
 }

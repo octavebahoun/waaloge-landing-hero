@@ -40,40 +40,78 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const heroSlides = ["Photo 1/3 — studio", "Photo 2/3 — chambre", "Photo 3/3 — coloc"];
+import heroStudio from "@/assets/hero-studio.jpg";
+import heroChambre from "@/assets/hero-chambre.jpg";
+import heroColoc from "@/assets/hero-coloc.jpg";
+import stepParcours from "@/assets/step-parcours.jpg";
+import stepVisite from "@/assets/step-visite.jpg";
+import stepSignature from "@/assets/step-signature.jpg";
+import stepPaiement from "@/assets/step-paiement.jpg";
+import listingOuando from "@/assets/listing-ouando.jpg";
+import listingAgonve from "@/assets/listing-agonve.jpg";
+import listingDjegbadji from "@/assets/listing-djegbadji.jpg";
+
+const heroSlides = [
+  { label: "Studio étudiant à Lokossa", src: heroStudio },
+  { label: "Chambre meublée à Lokossa", src: heroChambre },
+  { label: "Coloc étudiante à Lokossa", src: heroColoc },
+];
 
 const steps = [
   {
     n: "01",
     title: "Tu parcours",
     text: "Studios, chambres, colocs — photos vraies, prix nets.",
-    slot: "Photo étape 01",
+    slot: "Étudiant qui parcourt les logements",
+    src: stepParcours,
   },
   {
     n: "02",
     title: "Tu visites",
     text: "Rendez-vous fixé, tu vois de tes yeux.",
-    slot: "Photo étape 02",
+    slot: "Visite d'un logement",
+    src: stepVisite,
   },
   {
     n: "03",
     title: "Tu signes",
     text: "Le contrat, sur papier. Personne ne triche.",
-    slot: "Photo étape 03",
+    slot: "Signature du contrat papier",
+    src: stepSignature,
   },
   {
     n: "04",
     title: "Tu payes",
     text: "De main à main. Zéro appli, zéro arnaque.",
-    slot: "Photo étape 04",
+    slot: "Paiement en main propre",
+    src: stepPaiement,
   },
 ];
 
 const listings = [
-  { title: "Studio", quartier: "Ouando", prix: "35 000 F", slot: "Photo logement 1" },
-  { title: "Chambre", quartier: "Agonvè", prix: "18 000 F", slot: "Photo logement 2" },
-  { title: "T2", quartier: "Djègbadji", prix: "55 000 F", slot: "Photo logement 3" },
+  {
+    title: "Studio",
+    quartier: "Ouando",
+    prix: "35 000 F",
+    slot: "Studio à Ouando",
+    src: listingOuando,
+  },
+  {
+    title: "Chambre",
+    quartier: "Agonvè",
+    prix: "18 000 F",
+    slot: "Chambre à Agonvè",
+    src: listingAgonve,
+  },
+  {
+    title: "T2",
+    quartier: "Djègbadji",
+    prix: "55 000 F",
+    slot: "T2 à Djègbadji",
+    src: listingDjegbadji,
+  },
 ];
+
 
 const reasons = [
   {
@@ -243,10 +281,12 @@ function Landing() {
             <div className="relative mx-auto w-full max-w-md">
               <div className="dotted-crown rounded-full p-5">
                 <div className="relative aspect-square">
-                  {heroSlides.map((slot, i) => (
+                  {heroSlides.map((slide, i) => (
                     <ImageSlot
-                      key={slot}
-                      label={slot}
+                      key={slide.label}
+                      label={slide.label}
+                      src={slide.src}
+                      priority={i === 0}
                       round
                       className={`absolute inset-0 size-full transition-opacity duration-700 ${
                         i === hero.index ? "opacity-100" : "opacity-0"
@@ -274,9 +314,9 @@ function Landing() {
               </button>
 
               <div className="mt-6 flex justify-center gap-2 sm:absolute sm:bottom-14 sm:left-[38%] sm:mt-0 sm:-translate-x-1/2">
-                {heroSlides.map((slot, i) => (
+                {heroSlides.map((slide, i) => (
                   <button
-                    key={slot}
+                    key={slide.label}
                     type="button"
                     aria-label={`Aller à la photo ${i + 1}`}
                     onClick={() => hero.setIndex(i)}
@@ -322,7 +362,7 @@ function Landing() {
                     }`}
                   >
                     <div className="relative shrink-0">
-                      <ImageSlot label={step.slot} round className="size-40" />
+                      <ImageSlot label={step.slot} src={step.src} round className="size-40" />
                       <span
                         className={`absolute -top-2 flex size-11 items-center justify-center rounded-full bg-card font-display text-sm text-terracotta shadow-soft ${
                           flipped ? "-left-2" : "-right-2"
@@ -353,7 +393,12 @@ function Landing() {
                 key={l.slot}
                 className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
               >
-                <ImageSlot label={l.slot} className="aspect-[4/3] w-full rounded-none" />
+                <ImageSlot
+                  label={l.slot}
+                  src={l.src}
+                  className="aspect-[4/3] w-full rounded-none"
+                />
+
                 <div className="p-5">
                   <h3 className="text-lg">
                     {l.title} · {l.quartier}
