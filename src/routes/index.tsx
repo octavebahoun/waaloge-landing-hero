@@ -273,7 +273,7 @@ function Landing() {
                 <ChevronRight className="size-4" strokeWidth={2.75} />
               </button>
 
-              <div className="mt-6 flex justify-center gap-2">
+              <div className="mt-6 flex justify-center gap-2 sm:absolute sm:bottom-8 sm:left-1/2 sm:mt-0 sm:-translate-x-1/2">
                 {heroSlides.map((slot, i) => (
                   <button
                     key={slot}
@@ -287,7 +287,8 @@ function Landing() {
                 ))}
               </div>
 
-              <div className="absolute -bottom-4 right-0 flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft">
+              <div className="mt-6 flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft sm:absolute sm:-bottom-6 sm:right-0 sm:mt-0">
+
                 <div className="flex -space-x-2">
                   <span className="size-7 rounded-full border-2 border-card bg-sand" />
                   <span className="size-7 rounded-full border-2 border-card bg-terracotta" />
