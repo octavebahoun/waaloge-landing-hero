@@ -27,7 +27,7 @@ export function ImageSlot({ label, className, round = false, src, priority }: Im
           src={src}
           alt={label}
           loading={priority ? "eager" : "lazy"}
-          className="size-full object-cover mix-blend-multiply opacity-95"
+          className="size-full object-cover saturate-[0.92] sepia-[0.12]"
         />
       ) : (
         <span className="px-4 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
