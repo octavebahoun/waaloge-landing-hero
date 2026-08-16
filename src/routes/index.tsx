@@ -273,7 +273,7 @@ function Landing() {
                 <ChevronRight className="size-4" strokeWidth={2.75} />
               </button>
 
-              <div className="mt-6 flex justify-center gap-2 sm:absolute sm:bottom-8 sm:left-1/2 sm:mt-0 sm:-translate-x-1/2">
+              <div className="mt-6 flex justify-center gap-2 sm:absolute sm:bottom-14 sm:left-[38%] sm:mt-0 sm:-translate-x-1/2">
                 {heroSlides.map((slot, i) => (
                   <button
                     key={slot}
