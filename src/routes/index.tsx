@@ -304,7 +304,7 @@ function Landing() {
         </section>
 
         {/* COMMENT ÇA SE PASSE */}
-        <section id="concept" className="bg-sand/70 py-20 lg:py-28">
+        <section id="concept" className="bg-sand py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6 lg:px-10">
             <Kicker>Comment ça se passe</Kicker>
             <h2 className="mt-4 max-w-2xl text-3xl sm:text-4xl">
@@ -387,7 +387,7 @@ function Landing() {
         </section>
 
         {/* TÉMOIGNAGES */}
-        <section className="bg-sage/25 py-20 lg:py-28">
+        <section className="bg-sage/20 py-20 lg:py-28">
           <div className="relative mx-auto max-w-3xl px-14 text-center lg:px-20">
             <Kicker>Ils ont trouvé chez Waaloge</Kicker>
             <p aria-hidden="true" className="mt-4 font-display text-5xl text-sage">
@@ -450,7 +450,7 @@ function Landing() {
         </section>
 
         {/* PROPRIÉTAIRES */}
-        <section className="bg-sage/25">
+        <section className="bg-sage/20">
           <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between lg:px-10">
             <div>
               <h2 className="text-2xl">Vous avez une chambre libre à Lokossa ?</h2>
