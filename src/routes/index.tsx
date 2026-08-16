@@ -393,7 +393,12 @@ function Landing() {
                 key={l.slot}
                 className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
               >
-                <ImageSlot label={l.slot} className="aspect-[4/3] w-full rounded-none" />
+                <ImageSlot
+                  label={l.slot}
+                  src={l.src}
+                  className="aspect-[4/3] w-full rounded-none"
+                />
+
                 <div className="p-5">
                   <h3 className="text-lg">
                     {l.title} · {l.quartier}
