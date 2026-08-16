@@ -362,7 +362,7 @@ function Landing() {
                     }`}
                   >
                     <div className="relative shrink-0">
-                      <ImageSlot label={step.slot} round className="size-40" />
+                      <ImageSlot label={step.slot} src={step.src} round className="size-40" />
                       <span
                         className={`absolute -top-2 flex size-11 items-center justify-center rounded-full bg-card font-display text-sm text-terracotta shadow-soft ${
                           flipped ? "-left-2" : "-right-2"
